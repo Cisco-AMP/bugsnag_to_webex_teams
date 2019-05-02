@@ -14,9 +14,10 @@ module BugsnagNotifications
       error_url = @data[:error][:url]
       error_exception_class = @data[:error][:exceptionClass]
       error_message = @data[:error][:message]
-      stacktrace_file = @data[:error][:stackTrace][:file]
-      stacktrace_line_number = @data[:error][:stackTrace][:lineNumber]
-      stacktrace_method = @data[:error][:stackTrace][:method]
+      stacktrace = @data[:error][:stackTrace][0]
+      stacktrace_file = stacktrace[:file]
+      stacktrace_line_number = stacktrace[:lineNumber]
+      stacktrace_method = stacktrace[:method]
 
       <<-MESSAGE
       #{trigger_message} in #{app_release_stage} from #{project_name} in #{error_context} (details)[#{error_url}]
