@@ -13,3 +13,5 @@ has access>
 $ bundle
 $ WEBEX_ACCESS_CODE=<your bot's WebEx access code> bin/rails s
 ```
+
+Produces the following message on WebEx: ![Example](example.png)
