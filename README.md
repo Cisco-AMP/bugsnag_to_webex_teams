@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple Ruby on Rails app that works as a WebEx bot.
+It receives Webhooks from BugSnag and publishes a formatted Markdown
+message into WebEx Teams.
 
-Things you may want to cover:
+```
+https://<app-domain>/bugsnag_errors?room_id=<WebEx room ID where the bot
+has access>
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+$ bundle
+$ WEBEX_ACCESS_CODE=<your bot's WebEx access code> bin/rails s
+```

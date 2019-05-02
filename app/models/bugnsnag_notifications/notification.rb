@@ -19,11 +19,13 @@ module BugsnagNotifications
       stacktrace_line_number = stacktrace[:lineNumber]
       stacktrace_method = stacktrace[:method]
 
-      <<-MESSAGE
-      #{trigger_message} in __#{app_release_stage}__ from __#{project_name}__ in __#{error_context}__ ([details](#{error_url}))
-      #{error_exception_class}:#{error_message}
-      #{stacktrace_file}:#{stacktrace_line_number} - #{stacktrace_method}
-      MESSAGE
+      <<-MARKDOWN
+#{trigger_message} in __#{app_release_stage}__ from __#{project_name}__ in __#{error_context}__ ([details](#{error_url}))
+```
+#{error_exception_class}:#{error_message}
+#{stacktrace_file}:#{stacktrace_line_number} - #{stacktrace_method}
+```
+MARKDOWN
     end
 
   end
