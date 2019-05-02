@@ -9,15 +9,15 @@ module WebexTeams
 
     def markdown
       trigger_message = @bugsnag_hook[:trigger][:message]
-      app_release_stage = @bugsnag_hook[:app][:releaseStage]
+      app_release_stage = @bugsnag_hook[:error][:app][:releaseStage]
       project_name = @bugsnag_hook[:project][:name]
       error_context = @bugsnag_hook[:error][:context]
       error_url = @bugsnag_hook[:error][:url]
       error_exception_class = @bugsnag_hook[:error][:exceptionClass]
       error_message = @bugsnag_hook[:error][:message]
-      stacktrace_file = @bugsnag_hook[:stackTrace][:file]
-      stacktrace_line_number = @bugsnag_hook[:stackTrace][:lineNumber]
-      stacktrace_method = @bugsnag_hook[:stackTrace][:method]
+      stacktrace_file = @bugsnag_hook[:error][:stackTrace][:file]
+      stacktrace_line_number = @bugsnag_hook[:error][:stackTrace][:lineNumber]
+      stacktrace_method = @bugsnag_hook[:error][:stackTrace][:method]
 
       <<-MESSAGE
       #{trigger_message} in #{app_release_stage} from #{project_name} in #{error_context} (details)[#{error_url}]
