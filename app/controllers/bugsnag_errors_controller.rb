@@ -4,8 +4,8 @@ class BugsnagErrorsController < ApplicationController
   http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD']
 
   def create
-    logger.info "Got a webhook call from BugSnag"
-    logger.debug request.body.read
+    message = WebexTeams::Message.new(request.body.read)
+    message.deliver(params[:webex_room_id])
     render nothing: true, status: :created
   end
 
