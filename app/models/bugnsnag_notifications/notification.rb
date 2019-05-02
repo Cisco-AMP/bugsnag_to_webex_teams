@@ -21,7 +21,7 @@ module BugsnagNotifications
 
       <<-MESSAGE
       #{trigger_message} in __#{app_release_stage}__ from __#{project_name}__ in __#{error_context}__ ([details](#{error_url}))
-      __#{error_exception_class}:__ #{error_message}
+      #{error_exception_class}:#{error_message}
       #{stacktrace_file}:#{stacktrace_line_number} - #{stacktrace_method}
       MESSAGE
     end
