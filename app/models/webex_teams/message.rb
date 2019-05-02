@@ -4,7 +4,7 @@ module WebexTeams
     attr_accessor :bugsnag_hook
 
     def initialize(bugsnag_hook)
-      @bugsnag_hook = bugsnag_hook
+      @bugsnag_hook = bugsnag_hook.with_indifferent_access
     end
 
     def markdown
